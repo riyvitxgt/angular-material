@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="../bower_components/angular-material/angular-material.css" rel="stylesheet">
+    <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-material/angular-material.js"></script>
+    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.css">
+    <script type="text/javascript" src="../scripts/startApp.js"></script>
+    <title></title>
+
+</head>
+<body ng-app="starterApp" layout="column"  ng-controller="tableUpdateCtr">
+    <md-toolbar layout="row">
+        <h1>Angular Material - Starter App</h1>
+    </md-toolbar>
+    <div layout="column">
+        <section layout="row" layout-sm="column">
+            <md-button class="md-raised fa fa-save">&nbsp;保存</md-button>
+            <md-button class="md-raised fa fa-plus" ng-click="addColumn()">&nbsp;添加字段</md-button>
+            <md-button class="md-raised fa fa-remove" ng-click="deleteColumn()">&nbsp;删除字段</md-button>
+            <md-button class="md-raised fa fa-plus">&nbsp;添加索引</md-button>
+            <md-button class="md-raised fa fa-remove">&nbsp;删除索引</md-button>
+        </section>
+    </div>
+    <div layout="row">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>字段名</th>
+                    <th>类型</th>
+                    <th>长度</th>
+                    <th>比例</th>
+                    <th>不是null</th>
+                    <th>主键</th>
+                    <th>默认值</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="column in colums">
+                    <td>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <md-checkbox ng-model="column.isSelected"></md-checkbox>
+                        </md-input-container>
+                    </td>
+                    <td>
+                        <md-input-container class="md-block" flex-gt-sm>
+                        <input ng-model="column.columnName">
+                        </md-input-container>
+                    </td>
+                    <td>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <md-select ng-model="column.columnType">
+                                <md-option>Int</md-option>
+                                <md-option>Float</md-option>
+                                <md-option>Datetime</md-option>
+                                <md-option>...</md-option>
+                            </md-select>
+                        </md-input-container>
+                    </td>
+                    <td>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <input ng-model="column.columnLength" value="0">
+                        </md-input-container>
+                    </td>
+                    <td>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <input ng-model="column.columnDecimal" value="0">
+                        </md-input-container>
+                    </td>
+                    <td>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <md-checkbox ng-model="column.notNull"></md-checkbox>
+                        </md-input-container>
+                    </td>
+                    <td>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <md-checkbox ng-model="column.isPK"></md-checkbox>
+                        </md-input-container>
+                    </td>
+                    <td>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <input ng-model="column.defaultValue" value="0">
+                        </md-input-container>
+                    </td>
+                    <td>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <input ng-model="column.description" value="0">
+                        </md-input-container>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
