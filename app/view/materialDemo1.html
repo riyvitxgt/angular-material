@@ -18,7 +18,7 @@
     </md-toolbar>
     <div layout="column">
         <section layout="row" layout-sm="column">
-            <md-button class="md-raised fa fa-save">&nbsp;保存</md-button>
+            <md-button class="md-raised fa fa-save" ng-click="save()">&nbsp;保存</md-button>
             <md-button class="md-raised fa fa-plus" ng-click="addColumn()">&nbsp;添加字段</md-button>
             <md-button class="md-raised fa fa-remove" ng-click="deleteColumn()">&nbsp;删除字段</md-button>
             <md-button class="md-raised fa fa-plus">&nbsp;添加索引</md-button>
@@ -84,12 +84,12 @@
                     </td>
                     <td>
                         <md-input-container class="md-block" flex-gt-sm>
-                            <input ng-model="column.defaultValue" value="0">
+                            <input ng-model="column.defaultValue">
                         </md-input-container>
                     </td>
                     <td>
                         <md-input-container class="md-block" flex-gt-sm>
-                            <input ng-model="column.description" value="0">
+                            <input ng-disabled="!column.isNewCol" ng-model="column.remarks" value="0">
                         </md-input-container>
                     </td>
                 </tr>
